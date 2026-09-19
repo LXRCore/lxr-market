@@ -58,7 +58,7 @@ CreateThread(function()
     for _, b in ipairs(Config.Brokers) do
         if b.blip then
             local bl = N(0x554D9D53F696D002, 1664425300, b.coords.x, b.coords.y, b.coords.z)
-            if bl and bl ~= 0 then N(0x74F74D3207ED525C, bl, joaat('blip_shop_market'), true) N(0x9CB1A1623062F402, bl, b.label) end
+            if bl and bl ~= 0 then N(0x74F74D3207ED525C, bl, joaat('blip_shop_market'), true) if GetResourceState('lxr-mapcolor') == 'started' then pcall(function() N(0x662D364ABF16DE2F, bl, exports['lxr-mapcolor']:modifier('market')) end) end N(0x9CB1A1623062F402, bl, b.label) end
         end
     end
     while true do
